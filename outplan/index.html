@@ -160,6 +160,19 @@
   .performance-note p { margin: 5px 0 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.45; }
   .market-source { margin: 9px 2px 0; color: var(--ink-mute); font-size: 10.5px; line-height: 1.5; }
   .market-source a { color: var(--ink-soft); text-underline-offset: 3px; }
+  .product-context {
+    margin-top: 28px; padding: 30px; border: 1px solid rgba(0,194,255,.2); border-radius: 20px;
+    background: linear-gradient(135deg, rgba(0,194,255,.075), rgba(138,131,158,.055));
+  }
+  .product-context-head { display: grid; grid-template-columns: minmax(260px,.75fr) minmax(0,1.25fr); gap: 34px; align-items: start; }
+  .product-context .label { color: var(--cyan); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+  .product-context h3 { margin-top: 10px; font-size: clamp(24px,3vw,35px); line-height: 1.12; }
+  .product-context-head > p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.65; }
+  .product-context-head a { color: var(--ink); text-underline-offset: 3px; }
+  .product-context-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; margin-top: 25px; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--line); }
+  .product-context-item { padding: 19px 20px; background: rgba(25,21,38,.72); }
+  .product-context-item strong { display: block; font-size: 13px; }
+  .product-context-item span { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 11.5px; line-height: 1.5; }
 
   /* Daily evolution */
   .chart-box { padding: 30px 28px 24px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); box-shadow: var(--shadow); }
@@ -213,6 +226,9 @@
   .summary-card { padding: 23px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
   .summary-card .v { font-family: 'Inter Tight', sans-serif; font-size: 32px; font-weight: 700; }
   .summary-card .k { margin-top: 5px; color: var(--ink-soft); font-size: 12.5px; line-height: 1.4; }
+  .audience-reading { margin-bottom: 24px; padding: 20px 22px; border-left: 3px solid var(--cyan); border-radius: 0 14px 14px 0; background: rgba(0,194,255,.055); }
+  .audience-reading strong { display: block; font-size: 13px; }
+  .audience-reading p { margin: 6px 0 0; color: var(--ink-soft); font-size: 12.5px; line-height: 1.58; }
   .companies-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr); gap: 22px; align-items: stretch; min-width: 0; }
   .panel { display: flex; min-width: 0; height: 100%; padding: 28px; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
   .panel-title { margin-bottom: 22px; color: var(--ink-soft); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -300,7 +316,7 @@
     .campaign-switcher { order: 3; width: 100%; overflow-x: auto; }
     .campaign-switcher a { flex: 1 0 auto; text-align: center; }
     .hero { padding: 72px 0 66px; }
-    .hero-meta, .kpi-grid, .leader-grid, .audience-summary, .compare-grid, .steps-grid { grid-template-columns: 1fr; }
+    .hero-meta, .kpi-grid, .leader-grid, .audience-summary, .compare-grid, .steps-grid, .product-context-head, .product-context-grid { grid-template-columns: 1fr; }
     .hero-meta { gap: 18px; }
     .kpi-card { min-height: 0; }
     .engagement-strip { grid-template-columns: repeat(2, 1fr); }
@@ -362,9 +378,9 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">Visão geral</div>
-          <h2 class="h-section">Entrega ampla.<br />Nenhuma conversão.</h2>
+          <h2 class="h-section">Boa escala de mídia.<br />Nenhuma conversão registrada.</h2>
         </div>
-        <p class="lead">A campanha alcançou escala de mídia e levou 321 visitas ao site, mas terminou sem conversões registradas no período.</p>
+        <p class="lead">A campanha levou 321 visitas ao site e apareceu em grandes organizações. Para um SaaS de alto valor e venda consultiva, são sinais iniciais de atenção; nenhuma ação final foi registrada no período.</p>
       </div>
 
       <div class="kpi-grid">
@@ -373,7 +389,7 @@
         <article class="kpi-card"><div class="k">Visitas ao site</div><div class="v num">321</div><div class="ctx">cliques para a página de destino</div></article>
         <article class="kpi-card"><div class="k">CTR</div><div class="v accent num">0,406%</div><div class="ctx">taxa de clique no anúncio</div></article>
         <article class="kpi-card"><div class="k">CPC médio</div><div class="v num">R$ 4,60</div><div class="ctx">custo por visita ao site</div></article>
-        <article class="kpi-card"><div class="k">Conversões</div><div class="v zero num">0</div><div class="ctx">nenhum resultado comercial registrado</div></article>
+        <article class="kpi-card"><div class="k">Conversões</div><div class="v zero num">0</div><div class="ctx">nenhuma ação final atribuída à campanha</div></article>
       </div>
 
       <div class="engagement-strip" aria-label="Composição dos 532 engajamentos">
@@ -385,11 +401,23 @@
       </div>
 
       <div class="performance-strip" id="destaques-positivos" aria-label="Destaques positivos da campanha">
-        <article class="performance-note"><div class="label">CTR em linha</div><strong class="num">0,406%</strong><p>Alinhado a referências agregadas de mercado de 0,39% e 0,42% para anúncios de imagem única no LinkedIn.</p></article>
+        <article class="performance-note"><div class="label">CTR em linha</div><strong class="num">0,406%</strong><p>Alinhado a referências agregadas de 0,39% e 0,42%: um sinal saudável de resposta ao anúncio, embora não comprove qualificação comercial.</p></article>
         <article class="performance-note"><div class="label">Escala com CPM estável</div><strong class="num">2,87× mais impressões</strong><p>Que a CP02, mantendo praticamente o mesmo CPM: R$ 18,67 versus R$ 18,66.</p></article>
-        <article class="performance-note"><div class="label">Tráfego predominante</div><strong class="num">60,3% das interações</strong><p>Foram visitas ao site: 321 dos 532 engajamentos registrados.</p></article>
-        <article class="performance-note"><div class="label">Direção criativa clara</div><strong class="num">72% dos cliques</strong><p>Vieram dos três anúncios líderes, com 63,5% das impressões.</p></article>
+        <article class="performance-note"><div class="label">Tráfego predominante</div><strong class="num">60,3% das interações</strong><p>Foram visitas ao site: 321 dos 532 engajamentos. É o primeiro passo; a qualidade depende do perfil de quem avançou.</p></article>
+        <article class="performance-note"><div class="label">Direções para testar</div><strong class="num">72% dos cliques</strong><p>Vieram dos três líderes, que apontam linhas criativas promissoras sem definir um vencedor comercial.</p></article>
       </div>
+
+      <aside class="product-context" aria-label="Como o perfil do OutBuyCenter muda a leitura dos resultados">
+        <div class="product-context-head">
+          <div><div class="label">Contexto do produto</div><h3>Como ler os números de um SaaS de alto valor</h3></div>
+          <p>O OutBuyCenter é uma plataforma de e-Procurement e SRM para compras complexas. Segundo seu <a href="https://outbuycenter.software/" target="_blank" rel="noopener noreferrer">posicionamento oficial</a>, entrega mais valor a operações que movimentam acima de R$ 10 milhões por ano em <strong>compras</strong> — não necessariamente em faturamento —, com múltiplos fornecedores, ERP, aprovações e necessidade de governança.</p>
+        </div>
+        <div class="product-context-grid">
+          <div class="product-context-item"><strong>Perfil ideal</strong><span>Empresas com Procurement estruturado, compras recorrentes e complexidade suficiente para gerar impacto em produtividade, compliance e savings.</span></div>
+          <div class="product-context-item"><strong>Qualidade antes de volume</strong><span>O valor de uma visita depende de atingir profissionais de Compras e influenciadores da decisão em operações realmente aderentes.</span></div>
+          <div class="product-context-item"><strong>Sinal comercial</strong><span>CTR e CPC medem interesse inicial. Para essa venda consultiva, o avanço decisivo é uma avaliação, demonstração ou oportunidade qualificada.</span></div>
+        </div>
+      </aside>
       <p class="market-source">Referência externa de CTR para anúncios de imagem única: <a href="https://huble.com/blog/linkedin-ads-benchmarks" target="_blank" rel="noopener noreferrer">Huble · dados de 2024</a> e <a href="https://zenabm.com/blog/linkedin-single-image-ads-benchmarks" target="_blank" rel="noopener noreferrer">ZenABM · benchmark ABM 2026</a>. O LinkedIn não publica uma média universal oficial.</p>
     </div>
   </section>
@@ -411,7 +439,7 @@
         </div>
       </div>
       <div class="day-highlights">
-        <article class="day-card"><div class="date">17/08</div><strong>Melhor eficiência diária</strong><span>CTR de 0,585% e CPC de R$ 3,22.</span></article>
+        <article class="day-card"><div class="date">17/08</div><strong>Melhor eficiência de clique</strong><span>CTR de 0,585% e CPC de R$ 3,22.</span></article>
         <article class="day-card"><div class="date">20/08</div><strong>Maior volume de entrega</strong><span>8.365 impressões com CPM de R$ 13,59.</span></article>
         <article class="day-card"><div class="date">28/08</div><strong>Encerramento da campanha</strong><span>Campanha pausada após R$ 59,87 no dia.</span></article>
       </div>
@@ -423,9 +451,9 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">Desempenho criativo</div>
-          <h2 class="h-section">Três conceitos lideraram o tráfego.</h2>
+          <h2 class="h-section">Três linhas criativas lideraram o tráfego.</h2>
         </div>
-        <p class="lead">AD_02, AD_10 e AD_06 reuniram 72% dos cliques com 63,5% das impressões. São líderes observados, não um teste controlado com vencedor absoluto.</p>
+        <p class="lead">AD_02, AD_10 e AD_06 reuniram 72% dos cliques e apontam três caminhos de valor para retestar no perfil ideal: concorrência e savings, controle e governança, automação e produtividade.</p>
       </div>
 
       <div class="leader-grid">
@@ -437,17 +465,17 @@
       <div class="creative-grid">
         <button class="creative-card leader" type="button" data-full="assets/criativos/ago-2026/ad-02-v1-full.webp" data-name="AD_02 · Concorrência real" aria-label="Ampliar criativo AD_02">
           <span class="thumb"><img src="assets/criativos/ago-2026/ad-02-v1-card.webp" alt="Criativo AD_02 sobre disputa na cotação" /><span class="badge accent">Maior escala</span></span>
-          <span class="creative-info"><span class="creative-title">AD_02 · Concorrência real</span><span class="creative-concept">Disputa na cotação apoiada por interface e fornecedores.</span><span class="creative-stats"><span><span class="k">Impr.</span><span class="v num">22.645</span></span><span><span class="k">Cliques</span><span class="v num">102</span></span><span><span class="k">CTR</span><span class="v hi num">0,450%</span></span><span><span class="k">CPC</span><span class="v num">R$ 4,36</span></span></span></span>
+          <span class="creative-info"><span class="creative-title">AD_02 · Concorrência real</span><span class="creative-concept">Linha de impacto financeiro: mais concorrência entre fornecedores e potencial de savings.</span><span class="creative-stats"><span><span class="k">Impr.</span><span class="v num">22.645</span></span><span><span class="k">Cliques</span><span class="v num">102</span></span><span><span class="k">CTR</span><span class="v hi num">0,450%</span></span><span><span class="k">CPC</span><span class="v num">R$ 4,36</span></span></span></span>
         </button>
 
         <button class="creative-card leader" type="button" data-full="assets/criativos/ago-2026/ad-10-v1-full.webp" data-name="AD_10 · Caos ao controle" aria-label="Ampliar criativo AD_10">
           <span class="thumb"><img src="assets/criativos/ago-2026/ad-10-v1-card.webp" alt="Criativo AD_10 mostrando a transformação do caos para o controle" /><span class="badge accent">Melhor CPC</span></span>
-          <span class="creative-info"><span class="creative-title">AD_10 · Caos ao controle</span><span class="creative-concept">Narrativa visual de antes e depois da operação.</span><span class="creative-stats"><span><span class="k">Impr.</span><span class="v num">17.900</span></span><span><span class="k">Cliques</span><span class="v num">82</span></span><span><span class="k">CTR</span><span class="v hi num">0,458%</span></span><span><span class="k">CPC</span><span class="v num">R$ 3,90</span></span></span></span>
+          <span class="creative-info"><span class="creative-title">AD_10 · Caos ao controle</span><span class="creative-concept">Linha de controle: transformação visual ligada a governança e rastreabilidade.</span><span class="creative-stats"><span><span class="k">Impr.</span><span class="v num">17.900</span></span><span><span class="k">Cliques</span><span class="v num">82</span></span><span><span class="k">CTR</span><span class="v hi num">0,458%</span></span><span><span class="k">CPC</span><span class="v num">R$ 3,90</span></span></span></span>
         </button>
 
         <button class="creative-card leader" type="button" data-full="assets/criativos/ago-2026/ad-06-v1-full.webp" data-name="AD_06 · Menos esforço" aria-label="Ampliar criativo AD_06">
           <span class="thumb"><img src="assets/criativos/ago-2026/ad-06-v1-card.webp" alt="Criativo AD_06 com dashboard e promessa de menos esforço operacional" /><span class="badge accent">Maior CTR</span></span>
-          <span class="creative-info"><span class="creative-title">AD_06 · Menos esforço</span><span class="creative-concept">Prova objetiva de produtividade com interface do produto.</span><span class="creative-stats"><span><span class="k">Impr.</span><span class="v num">9.632</span></span><span><span class="k">Cliques</span><span class="v num">47</span></span><span><span class="k">CTR</span><span class="v hi num">0,488%</span></span><span><span class="k">CPC</span><span class="v num">R$ 4,11</span></span></span></span>
+          <span class="creative-info"><span class="creative-title">AD_06 · Menos esforço</span><span class="creative-concept">Linha de produtividade: automação apoiada pela interface real do produto.</span><span class="creative-stats"><span><span class="k">Impr.</span><span class="v num">9.632</span></span><span><span class="k">Cliques</span><span class="v num">47</span></span><span><span class="k">CTR</span><span class="v hi num">0,488%</span></span><span><span class="k">CPC</span><span class="v num">R$ 4,11</span></span></span></span>
         </button>
 
         <button class="creative-card" type="button" data-full="assets/criativos/ago-2026/ad-03-v2-full.webp" data-name="AD_03 V2 · Custo operacional" aria-label="Ampliar criativo AD_03 V2">
@@ -488,16 +516,18 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">Público impactado</div>
-          <h2 class="h-section">Grandes empresas, entrega pulverizada.</h2>
+          <h2 class="h-section">Sinal de aderência corporativa, entrega pulverizada.</h2>
         </div>
-        <p class="lead">O anúncio apareceu para profissionais de organizações relevantes em diferentes setores. Nenhuma empresa concentrou mais de 0,47% das impressões.</p>
+        <p class="lead">A campanha apareceu em organizações de grande porte e de diferentes setores, algo coerente com um produto transversal para compras complexas. O ranking mostra cobertura; não confirma o cargo das pessoas, o volume anual de compras nem intenção comercial.</p>
       </div>
 
       <div class="audience-summary">
-        <article class="summary-card"><div class="v num">371</div><div class="k">impressões na empresa líder, Itaú Unibanco</div></article>
-        <article class="summary-card"><div class="v num">2,96%</div><div class="k">das impressões reunidas pelas dez maiores</div></article>
-        <article class="summary-card"><div class="v num">5,14%</div><div class="k">das impressões reunidas pelos 25 registros</div></article>
+        <article class="summary-card"><div class="v num">371</div><div class="k">impressões na empresa líder, Itaú Unibanco · 0,47% do total</div></article>
+        <article class="summary-card"><div class="v num">2,96%</div><div class="k">das impressões nas dez maiores · cobertura ampla, baixa concentração</div></article>
+        <article class="summary-card"><div class="v num">5,14%</div><div class="k">das impressões nos 25 registros · predominância de cauda longa</div></article>
       </div>
+
+      <div class="audience-reading"><strong>Leitura para o perfil de cliente ideal</strong><p>Nomes como Itaú, Santander, Mercado Livre, Vale, Rede D’Or, Embraer e Gerdau são um sinal positivo de presença em ambientes corporativos potencialmente complexos. Como as dez maiores concentraram apenas 2,96% das impressões, a campanha construiu amplitude, não profundidade em contas prioritárias. O próximo teste deve combinar listas de empresas previamente qualificadas com função e senioridade em Compras, Procurement e Suprimentos.</p></div>
 
       <div class="companies-layout">
         <div class="panel">
@@ -589,15 +619,15 @@
     <div class="wrap">
       <div class="verdict">
         <div class="label">Conclusão</div>
-        <h3>A campanha geral ampliou a escala de mídia, mas perdeu eficiência de clique e não gerou conversões.</h3>
-        <p>Em termos simples: em relação à campanha têxtil CP02, os anúncios foram exibidos 2,87 vezes mais sem aumento relevante no custo médio de exibição e levaram 321 visitas ao site. Porém, proporcionalmente, menos exibições se transformaram em visitas e nenhuma ação definida como objetivo final da campanha foi registrada. A próxima etapa deve identificar quais combinações de público e mensagem atraem visitantes com maior chance de avançar.</p>
+        <h3>A campanha ampliou a presença do OutBuyCenter em empresas de grande porte, mas ainda não gerou demanda qualificada.</h3>
+        <p>Em termos simples: os anúncios foram exibidos 79.067 vezes, geraram 321 visitas e apareceram em organizações com perfil corporativo relevante. Para um SaaS de alto valor, porém, o clique é apenas o primeiro passo: o objetivo é levar profissionais de Compras de operações aderentes — em geral, acima de R$ 10 milhões por ano em compras — a solicitar uma avaliação ou demonstração. Como nenhuma conversão foi registrada, a campanha ainda não comprova geração de oportunidades comerciais.</p>
       </div>
 
       <div class="steps-grid">
-        <article class="step-card"><div class="index">01</div><h4>Entender quais públicos respondem melhor</h4><p>Dividir a audiência ampla em grupos por setor, porte de empresa ou perfil profissional. Testes separados permitirão comparar os resultados e direcionar o investimento para os públicos que demonstrarem maior interesse.</p></article>
-        <article class="step-card"><div class="index">02</div><h4>Evoluir a linha criativa mais promissora</h4><p>AD_02, AD_10 e AD_06 apontam uma direção: problemas fáceis de reconhecer, benefícios concretos, contraste visual claro e o produto em uso. A recomendação é criar novas versões seguindo essa linha.</p></article>
-        <article class="step-card"><div class="index">03</div><h4>Ampliar os testes de mensagem e formato</h4><p>Comparar argumentos como controle, redução de esforço, concorrência entre fornecedores e produtividade, além de novas formas de apresentá-los. Cada rodada deve alterar poucos elementos para deixar claro o que contribuiu para o resultado.</p></article>
-        <article class="step-card"><div class="index">04</div><h4>Usar resultados finais para orientar a escala</h4><p>Cliques ajudam a identificar interesse, mas o investimento deve aumentar quando uma combinação de público e anúncio começar a gerar, de forma consistente, as ações definidas como objetivo da campanha.</p></article>
+        <article class="step-card"><div class="index">01</div><h4>Testar o perfil ideal em grupos separados</h4><p>Combinar listas de contas qualificadas por volume e estrutura de Compras com cargos e senioridades de Procurement, Suprimentos e áreas influenciadoras. Manter grupos separados por setor ou porte mostrará onde a cobertura se transforma em interesse qualificado.</p></article>
+        <article class="step-card"><div class="index">02</div><h4>Levar as três linhas criativas a provas de negócio</h4><p>Evoluir AD_02, AD_10 e AD_06 em três caminhos: savings e concorrência, governança e controle, automação e produtividade. Cada variação deve sustentar uma promessa com interface, integração ao ERP, caso de uso ou resultado documentado.</p></article>
+        <article class="step-card"><div class="index">03</div><h4>Testar convites compatíveis com a venda consultiva</h4><p>Comparar chamadas de maior intenção, como “Ver se é para minha empresa”, “Avaliar a aderência da operação” e “Solicitar uma demonstração personalizada”. O contato deve captar cargo, volume anual de compras, ERP e complexidade de fornecedores para diferenciar visita de oportunidade.</p></article>
+        <article class="step-card"><div class="index">04</div><h4>Escalar com qualidade, não apenas com cliques</h4><p>CTR e CPC continuam úteis para otimizar anúncios, mas a decisão de ampliar investimento deve considerar contatos aderentes, demonstrações e oportunidades comerciais geradas de forma consistente por cada combinação de público, mensagem e convite.</p></article>
       </div>
     </div>
   </section>
