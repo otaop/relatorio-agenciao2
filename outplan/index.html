@@ -150,6 +150,16 @@
   .engagement-item.total { background: var(--accent-soft); }
   .engagement-item .v { font-family: 'Inter Tight', sans-serif; font-size: 25px; font-weight: 700; }
   .engagement-item .k { margin-top: 3px; color: var(--ink-mute); font-size: 11px; line-height: 1.4; }
+  .performance-strip {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 14px;
+    overflow: hidden; scroll-margin-top: 92px; border: 1px solid rgba(110,231,168,.16); border-radius: 16px; background: var(--line);
+  }
+  .performance-note { min-width: 0; padding: 19px 20px; background: rgba(110,231,168,.045); }
+  .performance-note .label { color: var(--positive); font-size: 9.5px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+  .performance-note strong { display: block; margin-top: 7px; font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.22; }
+  .performance-note p { margin: 5px 0 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.45; }
+  .market-source { margin: 9px 2px 0; color: var(--ink-mute); font-size: 10.5px; line-height: 1.5; }
+  .market-source a { color: var(--ink-soft); text-underline-offset: 3px; }
 
   /* Daily evolution */
   .chart-box { padding: 30px 28px 24px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); box-shadow: var(--shadow); }
@@ -203,37 +213,44 @@
   .summary-card { padding: 23px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
   .summary-card .v { font-family: 'Inter Tight', sans-serif; font-size: 32px; font-weight: 700; }
   .summary-card .k { margin-top: 5px; color: var(--ink-soft); font-size: 12.5px; line-height: 1.4; }
-  .companies-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr); gap: 22px; align-items: start; min-width: 0; }
-  .panel { min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
+  .companies-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr); gap: 22px; align-items: stretch; min-width: 0; }
+  .panel { display: flex; min-width: 0; height: 100%; padding: 28px; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
   .panel-title { margin-bottom: 22px; color: var(--ink-soft); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-  .company-bar { margin-bottom: 15px; }
-  .company-bar:last-child { margin-bottom: 0; }
-  .company-bar .label { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 6px; font-size: 12.5px; }
+  #companyBars { display: grid; flex: 1; grid-template-rows: repeat(10, minmax(0, 1fr)); }
+  .company-bar { display: flex; padding: 8px 0; flex-direction: column; justify-content: center; border-bottom: 1px solid rgba(255,255,255,.045); }
+  .company-bar:last-child { border-bottom: 0; }
+  .company-bar .label { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 8px; font-size: 14px; }
   .company-bar .label span:first-child { min-width: 0; overflow: hidden; color: var(--ink-soft); text-overflow: ellipsis; white-space: nowrap; }
   .company-bar .label strong { font-weight: 600; }
-  .bar-track { height: 8px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.055); }
+  .bar-track { height: 10px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.055); }
   .bar-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), #bc7567); }
   .company-list { display: grid; min-width: 0; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; }
-  .company-chip { display: flex; min-width: 0; width: 100%; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 12px; border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.018); }
-  .company-chip .name { min-width: 0; overflow: hidden; color: var(--ink-soft); font-size: 11.5px; text-overflow: ellipsis; white-space: nowrap; }
-  .company-chip .value { color: var(--ink); font-size: 11px; font-weight: 700; }
+  .company-chip { display: flex; min-width: 0; min-height: 46px; width: 100%; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 13px; border: 1px solid var(--line); border-radius: 11px; background: rgba(255,255,255,.018); }
+  .company-chip .name { min-width: 0; overflow: hidden; color: var(--ink-soft); font-size: 12.5px; text-overflow: ellipsis; white-space: nowrap; }
+  .company-chip .value { color: var(--ink); font-size: 11.5px; font-weight: 700; }
   .company-chip.category { border-style: dashed; background: rgba(0,194,255,.04); }
   .company-chip.category .name::after { content: 'categoria'; margin-left: 7px; color: var(--cyan); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; }
 
   /* Historical comparison */
-  .compare-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+  .compare-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
   .compare-card { padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); }
   .compare-card.current { border-color: rgba(232,154,130,.35); background: linear-gradient(150deg, var(--accent-soft), transparent 48%), var(--card); }
+  .compare-card.pageview { border-color: rgba(0,194,255,.22); background: linear-gradient(150deg, rgba(0,194,255,.07), transparent 50%), var(--card); }
   .compare-card .period { color: var(--ink-mute); font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .compare-card h3 { margin-top: 8px; font-size: 27px; }
+  .compare-card .objective { margin-top: 8px; color: var(--ink-soft); font-size: 11.5px; }
   .compare-table { width: 100%; margin-top: 22px; border-collapse: collapse; }
   .compare-table th, .compare-table td { padding: 11px 0; border-top: 1px solid var(--line); font-size: 12.5px; }
   .compare-table th { color: var(--ink-mute); font-weight: 500; text-align: left; }
   .compare-table td { font-weight: 700; text-align: right; }
   .compare-link { display: inline-flex; margin-top: 20px; color: var(--accent); font-size: 12.5px; font-weight: 700; text-decoration: none; }
   .compare-link:hover { text-decoration: underline; }
+  .compare-actions { display: flex; justify-content: flex-end; }
   .comparison-insight { margin-top: 22px; padding: 23px 25px; border: 1px solid rgba(245,200,107,.23); border-radius: 15px; background: rgba(245,200,107,.065); color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
   .comparison-insight strong { color: var(--ink); }
+  .comparison-insight p { margin: 0; }
+  .comparison-insight p + p { margin-top: 9px; }
+  .comparison-insight .caveat { color: var(--ink-mute); font-size: 12px; }
 
   /* Reading / actions */
   .verdict {
@@ -270,6 +287,11 @@
     .section-head .lead { justify-self: start; }
     .creative-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .companies-layout { grid-template-columns: 1fr; }
+    .panel { height: auto; }
+    #companyBars { display: block; }
+    .company-bar { padding: 0 0 18px; border-bottom: 0; }
+    .company-bar:last-child { padding-bottom: 0; }
+    .compare-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 760px) {
     .wrap { padding-inline: 20px; }
@@ -283,6 +305,7 @@
     .kpi-card { min-height: 0; }
     .engagement-strip { grid-template-columns: repeat(2, 1fr); }
     .engagement-item.total { grid-column: 1 / -1; }
+    .performance-strip { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .day-highlights { grid-template-columns: 1fr; }
     .chart-wrap { height: 330px; }
   }
@@ -292,6 +315,7 @@
     .creative-grid, .company-list { grid-template-columns: minmax(0, 1fr); }
     .creative-concept { min-height: 0; }
     .engagement-strip { grid-template-columns: 1fr 1fr; }
+    .performance-strip { grid-template-columns: 1fr; }
     .panel, .chart-box { padding: 22px 18px; }
     .lightbox { padding: 16px; }
     .lightbox-close { top: 14px; right: 14px; }
@@ -359,6 +383,14 @@
         <div class="engagement-item"><div class="v num">88</div><div class="k">outros cliques</div></div>
         <div class="engagement-item"><div class="v num">28</div><div class="k">reações</div></div>
       </div>
+
+      <div class="performance-strip" id="destaques-positivos" aria-label="Destaques positivos da campanha">
+        <article class="performance-note"><div class="label">CTR em linha</div><strong class="num">0,406%</strong><p>Alinhado a referências agregadas de mercado de 0,39% e 0,42% para anúncios de imagem única no LinkedIn.</p></article>
+        <article class="performance-note"><div class="label">Escala com CPM estável</div><strong class="num">2,87× mais impressões</strong><p>Que a CP02, mantendo praticamente o mesmo CPM: R$ 18,67 versus R$ 18,66.</p></article>
+        <article class="performance-note"><div class="label">Tráfego predominante</div><strong class="num">60,3% das interações</strong><p>Foram visitas ao site: 321 dos 532 engajamentos registrados.</p></article>
+        <article class="performance-note"><div class="label">Direção criativa clara</div><strong class="num">72% dos cliques</strong><p>Vieram dos três anúncios líderes, com 63,5% das impressões.</p></article>
+      </div>
+      <p class="market-source">Referência externa de CTR para anúncios de imagem única: <a href="https://huble.com/blog/linkedin-ads-benchmarks" target="_blank" rel="noopener noreferrer">Huble · dados de 2024</a> e <a href="https://zenabm.com/blog/linkedin-single-image-ads-benchmarks" target="_blank" rel="noopener noreferrer">ZenABM · benchmark ABM 2026</a>. O LinkedIn não publica uma média universal oficial.</p>
     </div>
   </section>
 
@@ -485,15 +517,16 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">Comparação histórica</div>
-          <h2 class="h-section">Mais escala, menos eficiência.</h2>
+          <h2 class="h-section">Três campanhas, três contextos.</h2>
         </div>
-        <p class="lead">A comparação usa apenas a CP02 têxtil de julho, que também foi configurada para conversões no site. Audiência e criativos eram diferentes.</p>
+        <p class="lead">A leitura reúne as duas campanhas têxteis de julho e a campanha geral de agosto. A CP01 tinha objetivo PageView; por isso, sua comparação é apenas direcional.</p>
       </div>
 
       <div class="compare-grid">
         <article class="compare-card current">
           <div class="period">Agosto 2026 · campanha geral</div>
           <h3>CP03 · Geral</h3>
+          <div class="objective">Objetivo · conversões no site</div>
           <table class="compare-table">
             <tbody>
               <tr><th>Investimento</th><td class="num">R$ 1.476,45</td></tr>
@@ -510,6 +543,7 @@
         <article class="compare-card">
           <div class="period">Julho 2026 · setor têxtil</div>
           <h3>CP02 · Têxtil</h3>
+          <div class="objective">Objetivo · conversões no site</div>
           <table class="compare-table">
             <tbody>
               <tr><th>Investimento</th><td class="num">R$ 514,43</td></tr>
@@ -521,11 +555,33 @@
               <tr><th>Conversões</th><td class="num">0</td></tr>
             </tbody>
           </table>
-          <a class="compare-link" href="campanhas/setor-textil-jul-2026/">Ver relatório completo de julho →</a>
+        </article>
+
+        <article class="compare-card pageview">
+          <div class="period">07–17 jul 2026 · setor têxtil</div>
+          <h3>CP01 · PageView</h3>
+          <div class="objective">Objetivo · visitas ao site / PageView</div>
+          <table class="compare-table">
+            <tbody>
+              <tr><th>Investimento</th><td class="num">R$ 644,90</td></tr>
+              <tr><th>Impressões</th><td class="num">23.853</td></tr>
+              <tr><th>Visitas ao site</th><td class="num">105</td></tr>
+              <tr><th>CTR</th><td class="num">0,440%</td></tr>
+              <tr><th>CPC</th><td class="num">R$ 6,14</td></tr>
+              <tr><th>CPM</th><td class="num">R$ 27,04</td></tr>
+              <tr><th>Conversões atribuídas</th><td class="num">32*</td></tr>
+            </tbody>
+          </table>
         </article>
       </div>
 
-      <div class="comparison-insight"><strong>Leitura direcional:</strong> agosto entregou 2,87× mais impressões com CPM praticamente igual, mas gerou 7,8% menos visitas. O CTR ficou 67,8% menor e o CPC, 211% maior. As duas campanhas terminaram sem conversões.</div>
+      <div class="compare-actions"><a class="compare-link" href="campanhas/setor-textil-jul-2026/">Ver relatório completo de julho →</a></div>
+
+      <div class="comparison-insight">
+        <p><strong>CP01 → agosto:</strong> a campanha geral entregou 3,31× mais impressões e 3,06× mais visitas, com CPC 25,1% menor e CPM 30,9% menor. O CTR ficou 7,8% abaixo.</p>
+        <p><strong>CP02 → agosto:</strong> agosto entregou 2,87× mais impressões com CPM praticamente igual, mas gerou 7,8% menos visitas. O CTR ficou 67,8% menor e o CPC, 211% maior.</p>
+        <p class="caveat">* A CP01 tinha objetivo PageView/visitas ao site. As 32 conversões atribuídas — 19 pós-clique e 13 pós-visualização — correspondem a uma configuração e a eventos diferentes, portanto não são comparáveis diretamente ao zero das campanhas CP02 e CP03.</p>
+      </div>
     </div>
   </section>
 
