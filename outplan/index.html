@@ -160,19 +160,6 @@
   .performance-note p { margin: 5px 0 0; color: var(--ink-soft); font-size: 11.5px; line-height: 1.45; }
   .market-source { margin: 9px 2px 0; color: var(--ink-mute); font-size: 10.5px; line-height: 1.5; }
   .market-source a { color: var(--ink-soft); text-underline-offset: 3px; }
-  .product-context {
-    margin-top: 28px; padding: 30px; border: 1px solid rgba(0,194,255,.2); border-radius: 20px;
-    background: linear-gradient(135deg, rgba(0,194,255,.075), rgba(138,131,158,.055));
-  }
-  .product-context-head { display: grid; grid-template-columns: minmax(260px,.75fr) minmax(0,1.25fr); gap: 34px; align-items: start; }
-  .product-context .label { color: var(--cyan); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-  .product-context h3 { margin-top: 10px; font-size: clamp(24px,3vw,35px); line-height: 1.12; }
-  .product-context-head > p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.65; }
-  .product-context-head a { color: var(--ink); text-underline-offset: 3px; }
-  .product-context-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1px; margin-top: 25px; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--line); }
-  .product-context-item { padding: 19px 20px; background: rgba(25,21,38,.72); }
-  .product-context-item strong { display: block; font-size: 13px; }
-  .product-context-item span { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 11.5px; line-height: 1.5; }
 
   /* Daily evolution */
   .chart-box { padding: 30px 28px 24px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); box-shadow: var(--shadow); }
@@ -316,7 +303,7 @@
     .campaign-switcher { order: 3; width: 100%; overflow-x: auto; }
     .campaign-switcher a { flex: 1 0 auto; text-align: center; }
     .hero { padding: 72px 0 66px; }
-    .hero-meta, .kpi-grid, .leader-grid, .audience-summary, .compare-grid, .steps-grid, .product-context-head, .product-context-grid { grid-template-columns: 1fr; }
+    .hero-meta, .kpi-grid, .leader-grid, .audience-summary, .compare-grid, .steps-grid { grid-template-columns: 1fr; }
     .hero-meta { gap: 18px; }
     .kpi-card { min-height: 0; }
     .engagement-strip { grid-template-columns: repeat(2, 1fr); }
@@ -407,17 +394,6 @@
         <article class="performance-note"><div class="label">Direções para testar</div><strong class="num">72% dos cliques</strong><p>Vieram dos três líderes, que apontam linhas criativas promissoras sem definir um vencedor comercial.</p></article>
       </div>
 
-      <aside class="product-context" aria-label="Como o perfil do OutBuyCenter muda a leitura dos resultados">
-        <div class="product-context-head">
-          <div><div class="label">Contexto do produto</div><h3>Como ler os números de um SaaS de alto valor</h3></div>
-          <p>O OutBuyCenter é uma plataforma de e-Procurement e SRM para compras complexas. Segundo seu <a href="https://outbuycenter.software/" target="_blank" rel="noopener noreferrer">posicionamento oficial</a>, entrega mais valor a operações que movimentam acima de R$ 10 milhões por ano em <strong>compras</strong> — não necessariamente em faturamento —, com múltiplos fornecedores, ERP, aprovações e necessidade de governança.</p>
-        </div>
-        <div class="product-context-grid">
-          <div class="product-context-item"><strong>Perfil ideal</strong><span>Empresas com Procurement estruturado, compras recorrentes e complexidade suficiente para gerar impacto em produtividade, compliance e savings.</span></div>
-          <div class="product-context-item"><strong>Qualidade antes de volume</strong><span>O valor de uma visita depende de atingir profissionais de Compras e influenciadores da decisão em operações realmente aderentes.</span></div>
-          <div class="product-context-item"><strong>Sinal comercial</strong><span>CTR e CPC medem interesse inicial. Para essa venda consultiva, o avanço decisivo é uma avaliação, demonstração ou oportunidade qualificada.</span></div>
-        </div>
-      </aside>
       <p class="market-source">Referência externa de CTR para anúncios de imagem única: <a href="https://huble.com/blog/linkedin-ads-benchmarks" target="_blank" rel="noopener noreferrer">Huble · dados de 2024</a> e <a href="https://zenabm.com/blog/linkedin-single-image-ads-benchmarks" target="_blank" rel="noopener noreferrer">ZenABM · benchmark ABM 2026</a>. O LinkedIn não publica uma média universal oficial.</p>
     </div>
   </section>
