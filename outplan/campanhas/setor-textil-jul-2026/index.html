@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Outplan · Relatório LinkedIn Ads — Julho 2026</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/png" href="../../../assets/logo-o2.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #191526;
+    --bg-deep: #120F1D;
+    --ink: #F4F2F8;
+    --ink-soft: #C9C3DB;
+    --ink-mute: #8A839E;
+    --accent: #E89A82;
+    --accent-soft: rgba(232,154,130,0.14);
+    --cyan: #00C2FF;
+    --positive: #6EE7A8;
+    --warn: #F5C86B;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.14);
+    --card: rgba(255,255,255,0.025);
+    --card-hi: rgba(255,255,255,0.045);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  ::selection { background: var(--accent); color: #2a1a14; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 16px 8px 12px; border: 1px solid var(--line-strong); border-radius: 100px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 24px;
+  }
+  .eyebrow::before { content: ''; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+  h1, h2, h3, h4 { font-family: 'Inter Tight', 'Inter', sans-serif; margin: 0; letter-spacing: -0.02em; }
+  .display { font-weight: 600; font-size: clamp(36px, 5vw, 60px); line-height: 1.05; }
+  .display .soft { color: var(--ink-soft); font-weight: 500; display: block; margin-top: 6px; }
+  .h-section { font-weight: 600; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; margin-bottom: 20px; }
+  .lead { font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 680px; }
+  .small { font-size: 13px; color: var(--ink-mute); line-height: 1.5; }
+  b, strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Header ---------- */
+  header.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(25,21,38,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
+  header.top .brand { display: inline-flex; align-items: center; border-radius: 8px; }
+  header.top .logo { height: 24px; width: auto; opacity: 0.95; }
+  header.top .actions { display: flex; align-items: center; gap: 20px; }
+  header.top .portal-link {
+    color: var(--ink-soft); font-size: 12px; font-weight: 600; text-decoration: none;
+    letter-spacing: 0.04em; transition: color .2s ease;
+  }
+  header.top .portal-link:hover { color: var(--ink); }
+  header.top .brand:focus-visible,
+  header.top .portal-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+  header.top .tag { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+  .campaign-switcher {
+    display: flex; align-items: center; gap: 4px; padding: 4px;
+    border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,0.025);
+  }
+  .campaign-switcher a {
+    padding: 8px 12px; border-radius: 999px; color: var(--ink-mute); text-decoration: none;
+    font-size: 11px; font-weight: 600; white-space: nowrap; transition: color .2s ease, background .2s ease;
+  }
+  .campaign-switcher a:hover { color: var(--ink); }
+  .campaign-switcher a.active { color: var(--ink); background: var(--accent-soft); }
+  .campaign-switcher a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Hero / Capa ---------- */
+  .hero { padding-top: 100px; padding-bottom: 80px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; top: -20%; right: -10%; width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(232,154,130,0.16), transparent 70%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; }
+  .hero .channel-logo { display: block; width: 44px; height: 44px; margin-bottom: 28px; border-radius: 10px; }
+  .hero .meta {
+    margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    max-width: 760px; padding-top: 32px; border-top: 1px solid var(--line);
+  }
+  .hero .meta .k { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
+  .hero .meta .v { font-size: 18px; font-weight: 600; font-family: 'Inter Tight', sans-serif; }
+
+  /* ---------- KPI grid ---------- */
+  .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-top: 8px; }
+  .kpi-card { background: var(--bg); padding: 32px 28px; }
+  .kpi-card .k { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 12px; }
+  .kpi-card .v { font-size: 40px; font-weight: 700; font-family: 'Inter Tight', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .kpi-card .v.accent { color: var(--accent); }
+  .kpi-card .ctx { margin-top: 10px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.4; }
+  .kpi-card .ctx b { color: var(--positive); }
+
+  /* ---------- Campaign comparison ---------- */
+  .camp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  .camp-card { border: 1px solid var(--line); border-radius: 18px; padding: 32px; background: var(--card); position: relative; }
+  .camp-card.winner { border-color: rgba(232,154,130,0.4); background: linear-gradient(180deg, rgba(232,154,130,0.06), transparent 40%), var(--card); box-shadow: 0 30px 70px -35px rgba(232,154,130,0.3); }
+  .camp-card .tag-win {
+    position: absolute; top: -13px; left: 32px; background: var(--accent); color: #2a1a14;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+  }
+  .camp-card .kind { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+  .camp-card .name { font-size: 22px; font-weight: 600; font-family: 'Inter Tight', sans-serif; margin-top: 8px; }
+  .camp-card .period { font-size: 13px; color: var(--ink-mute); margin-top: 4px; }
+  .camp-card .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .camp-card .stat .k { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); }
+  .camp-card .stat .v { font-size: 24px; font-weight: 700; font-family: 'Inter Tight', sans-serif; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .camp-card .stat .v.hi { color: var(--accent); }
+  .insight-bar {
+    margin-top: 32px; padding: 20px 24px; border-radius: 14px; background: var(--accent-soft);
+    border: 1px solid rgba(232,154,130,0.3); font-size: 16px; font-weight: 500; color: var(--ink);
+  }
+
+  /* ---------- Chart ---------- */
+  .chart-box { margin-top: 48px; border: 1px solid var(--line); border-radius: 18px; padding: 32px 28px 24px; background: var(--card); }
+  .chart-canvas-wrap { position: relative; height: 360px; }
+  .chart-legend { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .chart-legend .item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-soft); }
+  .chart-legend .dot { width: 10px; height: 10px; border-radius: 3px; }
+
+  /* ---------- Audience ---------- */
+  .aud-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-top: 48px; }
+  .aud-card { border: 1px solid var(--line); border-radius: 18px; padding: 32px 28px; background: var(--card); }
+  .aud-card h3 { font-size: 15px; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 24px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; }
+  .bar-row { margin-bottom: 16px; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-row .lbl { display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 6px; }
+  .bar-row .lbl .name { color: var(--ink-soft); }
+  .bar-row .lbl .name.hi { color: var(--ink); font-weight: 600; }
+  .bar-row .lbl .pct { font-variant-numeric: tabular-nums; color: var(--ink-mute); }
+  .bar-track { height: 8px; border-radius: 100px; background: rgba(255,255,255,0.06); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 100px; background: var(--ink-mute); }
+  .bar-fill.hi { background: linear-gradient(90deg, var(--accent), #C97A62); }
+
+  .donut-wrap { display: flex; flex-direction: column; align-items: center; gap: 28px; margin-top: 8px; }
+  .donut-wrap canvas { max-width: 240px; max-height: 240px; }
+  .donut-legend { display: grid; gap: 12px; width: 100%; }
+  .donut-legend .item { display: flex; align-items: center; gap: 10px; font-size: 13.5px; }
+  .donut-legend .sw { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+  .donut-legend .lbl { color: var(--ink-soft); flex: 1; }
+  .donut-legend .val { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .companies-box { margin-top: 24px; border: 1px solid var(--line); border-radius: 18px; padding: 32px 28px; background: var(--card); }
+  .companies-box h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; color: var(--ink-soft); margin-bottom: 24px; font-weight: 600; }
+  .chip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .chip {
+    border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: rgba(255,255,255,0.02);
+  }
+  .chip.hi { border-color: rgba(232,154,130,0.35); background: var(--accent-soft); }
+  .chip .name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .chip .stats { margin-top: 4px; font-size: 11.5px; color: var(--ink-mute); font-variant-numeric: tabular-nums; }
+  .footnote {
+    margin-top: 24px; padding: 16px 20px; border-radius: 12px; background: rgba(255,255,255,0.02);
+    border: 1px solid var(--line); font-size: 13.5px; color: var(--ink-soft); line-height: 1.55;
+  }
+
+  /* ---------- Creatives ---------- */
+  .creative-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+  .creative-card {
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--card);
+    cursor: pointer; transition: transform .2s ease, border-color .2s ease; position: relative;
+  }
+  .creative-card:hover { transform: translateY(-3px); border-color: var(--line-strong); }
+  .creative-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .creative-card.winner { border-color: rgba(232,154,130,0.45); }
+  .creative-card .thumb { aspect-ratio: 4/5; overflow: hidden; background: #0c0a16; position: relative; }
+  .creative-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .creative-card .badge {
+    position: absolute; top: 10px; left: 10px; background: var(--accent); color: #2a1a14;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 100px;
+  }
+  .creative-card .zoom-hint {
+    position: absolute; bottom: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(15,12,25,0.75); backdrop-filter: blur(6px); display: grid; place-items: center;
+    color: var(--ink); opacity: 0; transition: opacity .2s ease;
+  }
+  .creative-card:hover .zoom-hint { opacity: 1; }
+  .creative-card .zoom-hint svg { width: 15px; height: 15px; }
+  .creative-card .info { padding: 18px 16px 20px; }
+  .creative-card .name { font-size: 13.5px; font-weight: 600; margin-bottom: 12px; }
+  .creative-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  .creative-card .stat .k { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-mute); }
+  .creative-card .stat .v { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .creative-card .stat .v.hi { color: var(--accent); }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 200; background: rgba(8,6,14,0.92); backdrop-filter: blur(6px);
+    display: none; align-items: center; justify-content: center; padding: 40px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: min(90vw, 620px); max-height: 86vh; border-radius: 12px; box-shadow: 0 40px 100px -30px rgba(0,0,0,0.7); }
+  .lightbox .close {
+    position: fixed; top: 28px; right: 32px; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--line-strong); background: rgba(25,21,38,0.7); color: var(--ink);
+    display: grid; place-items: center; cursor: pointer;
+  }
+  .lightbox .close svg { width: 18px; height: 18px; }
+
+  /* ---------- Leitura ---------- */
+  .read-grid { display: grid; gap: 20px; margin-top: 48px; }
+  .read-block { border: 1px solid var(--line); border-radius: 16px; padding: 28px 32px; background: var(--card); }
+  .read-block .rh { display: flex; align-items: center; gap: 12px; font-family: 'Inter Tight', 'Inter', sans-serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .read-block .rh .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .read-block.ok .rh .dot { background: var(--positive); }
+  .read-block.warn .rh .dot { background: var(--warn); }
+  .read-block.info .rh .dot { background: var(--cyan); }
+  .read-block ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .read-block li { position: relative; padding-left: 22px; font-size: 15.5px; color: var(--ink-soft); line-height: 1.55; }
+  .read-block li::before { content: ''; position: absolute; left: 0; top: 10px; width: 9px; height: 1.5px; background: var(--accent); }
+  .read-block p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  /* ---------- Next steps ---------- */
+  .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+  .step-card { border: 1px solid var(--line); border-radius: 16px; padding: 28px; background: var(--card); }
+  .step-card .num { font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; }
+  .step-card h4 { font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; margin-top: 12px; line-height: 1.2; }
+  .step-card p { font-size: 14.5px; color: var(--ink-soft); margin-top: 10px; line-height: 1.5; }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 56px 0 72px; text-align: center; }
+  footer img { height: 26px; margin: 0 auto 14px; opacity: 0.85; }
+  footer .tag { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); }
+
+  @media (max-width: 860px) {
+    .wrap { padding: 0 20px; }
+    header.top .wrap { flex-wrap: wrap; gap: 12px; }
+    .campaign-switcher { order: 3; width: 100%; overflow-x: auto; }
+    .campaign-switcher a { flex: 1 0 auto; text-align: center; }
+    section { padding: 64px 0; }
+    .hero { padding-top: 64px; }
+    .hero .meta { grid-template-columns: 1fr; gap: 20px; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .camp-grid { grid-template-columns: 1fr; }
+    .aud-grid { grid-template-columns: 1fr; }
+    .creative-grid { grid-template-columns: 1fr 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .chip-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    header.top .actions { gap: 12px; }
+    header.top .tag { display: none; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .creative-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../../" aria-label="Voltar à página inicial da Agência O2">
+      <img class="logo" src="../../../assets/logo-o2.png" alt="Agência O2" />
+    </a>
+    <nav class="campaign-switcher" aria-label="Selecionar campanha">
+      <a href="../../">Campanha geral · ago/2026</a>
+      <a class="active" href="./" aria-current="page">Setor têxtil · jul/2026</a>
+    </nav>
+    <div class="actions">
+      <a class="portal-link" href="../../../">Página inicial</a>
+      <span class="tag">Relatório confidencial</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 1. CAPA ============ -->
+<section class="hero">
+  <div class="wrap">
+    <svg class="channel-logo" viewBox="0 0 24 24" role="img" aria-label="LinkedIn">
+      <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+      <path fill="#ffffff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" transform="scale(0.82) translate(2.1,2.1)"/>
+    </svg>
+    <div class="eyebrow">Relatório de Performance · LinkedIn Ads</div>
+    <h1 class="display">Teste de validação — setor têxtil<span class="soft">Outplan · OutBuyCenter</span></h1>
+    <div class="meta">
+      <div><div class="k">Período</div><div class="v">07–21 jul 2026</div></div>
+      <div><div class="k">Investimento</div><div class="v">R$ 1.159,33</div></div>
+      <div><div class="k">Natureza</div><div class="v">Teste de validação</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. NÚMEROS DO PERÍODO ============ -->
+<section id="numeros">
+  <div class="wrap">
+    <div class="eyebrow">Visão geral</div>
+    <h2 class="h-section">Os números do período.</h2>
+    <p class="lead">Quinze dias de teste, com otimização em tempo real — o resultado consolidado abaixo já reflete os ajustes feitos ao longo do caminho.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="k">Investimento</div>
+        <div class="v">R$ 1.159</div>
+        <div class="ctx">em 15 dias de teste</div>
+      </div>
+      <div class="kpi-card">
+        <div class="k">Impressões</div>
+        <div class="v">51.426</div>
+        <div class="ctx">31.091 pessoas alcançadas</div>
+      </div>
+      <div class="kpi-card">
+        <div class="k">Cliques no site</div>
+        <div class="v">453</div>
+        <div class="ctx">tráfego qualificado</div>
+      </div>
+      <div class="kpi-card">
+        <div class="k">CTR médio</div>
+        <div class="v accent">0,88%</div>
+        <div class="ctx"><b>o dobro</b> da média do LinkedIn (~0,44%)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="k">CPC médio</div>
+        <div class="v">R$ 2,56</div>
+        <div class="ctx">R$ 1,48 na configuração otimizada</div>
+      </div>
+      <div class="kpi-card">
+        <div class="k">Leads (painel LinkedIn)</div>
+        <div class="v">0</div>
+        <div class="ctx">nenhum lead no período — pode ser a conta nova, o público muito segmentado ou o ticket alto do produto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. O QUE FOI TESTADO ============ -->
+<section id="campanhas">
+  <div class="wrap">
+    <div class="eyebrow">A comparação</div>
+    <h2 class="h-section">Duas hipóteses, testadas em sequência.</h2>
+    <p class="lead">Como a conta era nova, o teste começou com uma campanha de PageViews para gerar dados e entender a audiência. Com essa leitura em mãos, lançamos uma segunda configuração — e a comparação entre as duas definiu o resultado.</p>
+
+    <div class="camp-grid">
+      <div class="camp-card">
+        <div class="kind">Configuração 01</div>
+        <div class="name">CP01 · [PageView]</div>
+        <div class="period">Ativa de 07 a 17 de julho</div>
+        <div class="stat-row">
+          <div class="stat"><div class="k">Investimento</div><div class="v">R$ 644,90</div></div>
+          <div class="stat"><div class="k">Cliques</div><div class="v">105</div></div>
+          <div class="stat"><div class="k">CTR</div><div class="v">0,44%</div></div>
+          <div class="stat"><div class="k">CPC</div><div class="v">R$ 6,14</div></div>
+        </div>
+      </div>
+      <div class="camp-card winner">
+        <div class="tag-win">Vencedora</div>
+        <div class="kind">Configuração 02</div>
+        <div class="name">CP02 · [Lead]</div>
+        <div class="period">Ativa de 15 a 21 de julho</div>
+        <div class="stat-row">
+          <div class="stat"><div class="k">Investimento</div><div class="v">R$ 514,43</div></div>
+          <div class="stat"><div class="k">Cliques</div><div class="v hi">348</div></div>
+          <div class="stat"><div class="k">CTR</div><div class="v hi">1,26%</div></div>
+          <div class="stat"><div class="k">CPC</div><div class="v hi">R$ 1,48</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-bar">A segunda configuração triplicou o CTR e reduziu o custo por clique em 76% — e concentrou 77% de todos os cliques do teste, com menos investimento que a primeira.</div>
+  </div>
+</section>
+
+<!-- ============ 4. EVOLUÇÃO ============ -->
+<section id="evolucao">
+  <div class="wrap">
+    <div class="eyebrow">Linha do tempo</div>
+    <h2 class="h-section">O ponto de virada.</h2>
+    <p class="lead">A partir de 15/07 — quando a segunda configuração entra no ar — o CTR diário muda de patamar e nunca mais retorna ao nível anterior.</p>
+
+    <div class="chart-box">
+      <div class="chart-canvas-wrap"><canvas id="evoChart"></canvas></div>
+      <div class="chart-legend">
+        <div class="item"><span class="dot" style="background:var(--ink-mute)"></span>Investimento diário (R$)</div>
+        <div class="item"><span class="dot" style="background:var(--accent)"></span>CTR diário (%)</div>
+        <div class="item"><span class="dot" style="background:var(--cyan)"></span>Marco: entra a CP02 (15/07)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. PÚBLICO IMPACTADO ============ -->
+<section id="publico">
+  <div class="wrap">
+    <div class="eyebrow">Segmentação</div>
+    <h2 class="h-section">A verba encontrou quem precisava encontrar.</h2>
+    <p class="lead">76% de toda a entrega concentrada em têxtil e vestuário — e o setor têxtil teve CTR de 0,95%, acima da média geral do teste.</p>
+
+    <div class="aud-grid">
+      <div class="aud-card">
+        <h3>Setor da empresa · top 10 por impressões</h3>
+        <div id="setorBars"></div>
+      </div>
+      <div class="aud-card">
+        <h3>Porte da empresa</h3>
+        <div class="donut-wrap">
+          <canvas id="porteDonut"></canvas>
+          <div class="donut-legend" id="porteLegend"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="companies-box">
+      <h3>Empresas impactadas · 25 empresas com maior volume de impressões</h3>
+      <div class="chip-grid" id="companiesGrid"></div>
+      <div class="footnote">
+        <b>Sobre a Guararapes:</b> já é cliente da Outplan. Nesse caso, a exposição funcionou como
+        reforço de marca junto a uma conta ativa — não como prospecção. Nos próximos ciclos, clientes
+        atuais podem ser excluídos da segmentação para concentrar a verba em novos negócios.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. CRIATIVOS ============ -->
+<section id="criativos">
+  <div class="wrap">
+    <div class="eyebrow">Os anúncios</div>
+    <h2 class="h-section">O produto em uso foi o que mais engajou.</h2>
+    <p class="lead">Quatro criativos rodaram no período. Clique em qualquer um para ver em tamanho maior.</p>
+
+    <div class="creative-grid">
+      <div class="creative-card winner" role="button" tabindex="0" data-full="../../assets/criativos/ad-dash-full.webp" data-name="AD_DASH_1080x1350">
+        <div class="thumb">
+          <span class="badge">Vencedor</span>
+          <img src="../../assets/criativos/ad-dash-card.webp" alt="Criativo AD_DASH" />
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        </div>
+        <div class="info">
+          <div class="name">AD_DASH_1080x1350</div>
+          <div class="stats">
+            <div class="stat"><div class="k">Cliques</div><div class="v hi">321</div></div>
+            <div class="stat"><div class="k">CTR</div><div class="v hi">1,31%</div></div>
+            <div class="stat"><div class="k">CPC</div><div class="v">R$ 1,99</div></div>
+            <div class="stat"><div class="k">Atenção</div><div class="v">8,02s</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="creative-card" role="button" tabindex="0" data-full="../../assets/criativos/ad4-full.webp" data-name="AD4_1080x1350">
+        <div class="thumb">
+          <img src="../../assets/criativos/ad4-card.webp" alt="Criativo AD4" />
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        </div>
+        <div class="info">
+          <div class="name">AD4_1080x1350</div>
+          <div class="stats">
+            <div class="stat"><div class="k">Cliques</div><div class="v">56</div></div>
+            <div class="stat"><div class="k">CTR</div><div class="v">0,55%</div></div>
+            <div class="stat"><div class="k">CPC</div><div class="v">R$ 3,49</div></div>
+            <div class="stat"><div class="k">Atenção</div><div class="v">4,25s</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="creative-card" role="button" tabindex="0" data-full="../../assets/criativos/ad-08-full.webp" data-name="AD_08_v3_1080x1350">
+        <div class="thumb">
+          <img src="../../assets/criativos/ad-08-card.webp" alt="Criativo AD_08_v3" />
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        </div>
+        <div class="info">
+          <div class="name">AD_08_v3_1080x1350</div>
+          <div class="stats">
+            <div class="stat"><div class="k">Cliques</div><div class="v">38</div></div>
+            <div class="stat"><div class="k">CTR</div><div class="v">0,44%</div></div>
+            <div class="stat"><div class="k">CPC</div><div class="v">R$ 4,81</div></div>
+            <div class="stat"><div class="k">Atenção</div><div class="v">6,35s</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="creative-card" role="button" tabindex="0" data-full="../../assets/criativos/ad-pessoa-v2-full.webp" data-name="AD_PESSOA_V2_1080x1350">
+        <div class="thumb">
+          <img src="../../assets/criativos/ad-pessoa-v2-card.webp" alt="Criativo AD_PESSOA_V2" />
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        </div>
+        <div class="info">
+          <div class="name">AD_PESSOA_V2_1080x1350</div>
+          <div class="stats">
+            <div class="stat"><div class="k">Cliques</div><div class="v">38</div></div>
+            <div class="stat"><div class="k">CTR</div><div class="v">0,48%</div></div>
+            <div class="stat"><div class="k">CPC</div><div class="v">R$ 3,79</div></div>
+            <div class="stat"><div class="k">Atenção</div><div class="v">3,45s</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. LEITURA ============ -->
+<section id="leitura">
+  <div class="wrap">
+    <div class="eyebrow">Análise</div>
+    <h2 class="h-section">O que o teste comprou.</h2>
+
+    <div class="read-grid">
+      <div class="read-block ok">
+        <div class="rh"><span class="dot"></span>O que foi validado</div>
+        <ul>
+          <li><b>Existe audiência qualificada:</b> 76% da entrega em têxtil e vestuário, alcançando as maiores empresas do setor no Brasil.</li>
+          <li><b>A mensagem funciona:</b> CTR de 0,88% — o dobro da média do LinkedIn Ads.</li>
+          <li><b>O custo é viável:</b> CPC de R$ 2,56 na média, e R$ 1,48 na configuração otimizada.</li>
+          <li><b>Há um criativo vencedor claro:</b> o AD_DASH concentrou 71% dos cliques e o dobro do tempo de atenção dos demais.</li>
+          <li><b>A otimização funcionou:</b> a mudança de configuração no meio do teste triplicou o CTR.</li>
+        </ul>
+      </div>
+      <div class="read-block info">
+        <div class="rh"><span class="dot"></span>Onde o teste termina</div>
+        <p>O teste gerou tráfego qualificado, mas não gerou leads. As causas possíveis são a conta nova, que ainda não tem histórico na plataforma, o público propositalmente restrito e o perfil do produto — high ticket, com uma página que já filtra: só avançam empresas que faturam acima de R$ 10 milhões por ano. Também pode ser simplesmente uma questão de custo: num produto desse ticket, um lead a R$ 1.500 dentro da plataforma ainda é um bom negócio. O resultado não fecha a porta — pelo contrário. A audiência certa clicou, e o próximo ciclo é sobre converter esses visitantes.</p>
+      </div>
+      <div class="read-block warn">
+        <div class="rh"><span class="dot"></span>O que o teste custou e o que entregou</div>
+        <p>R$ 1.159,33 compraram informação — e era esse o propósito da verba: não havia meta de leads acordada, o objetivo era validar o canal. A informação é acionável: a audiência existe e é qualificada, a mensagem atrai o dobro da média do mercado, o custo por clique é competitivo e há um criativo vencedor identificado. Para uma conta nova, em 15 dias, com orçamento de teste, é o resultado que um teste bem conduzido deve entregar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. PRÓXIMOS PASSOS ============ -->
+<section id="proximos">
+  <div class="wrap">
+    <div class="eyebrow">Recomendações</div>
+    <h2 class="h-section">Para o próximo ciclo.</h2>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="num">01</div>
+        <h4>Escalar o criativo AD_DASH</h4>
+        <p>Produzir variações na mesma linha — mostrar a interface do produto em uso foi o que mais engajou, com folga sobre os demais formatos testados.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">02</div>
+        <h4>Excluir setores de baixo desempenho</h4>
+        <p>TI, contabilidade e varejo tiveram CTR abaixo da média geral e consumiram parte da verba sem o mesmo retorno do núcleo têxtil.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">03</div>
+        <h4>Excluir clientes atuais da segmentação</h4>
+        <p>A Guararapes, por exemplo, recebeu exposição relevante. Excluir a base de clientes ativos concentra a verba em prospecção.</p>
+      </div>
+      <div class="step-card">
+        <div class="num">04</div>
+        <h4>Criar lista de retargeting / ABM</h4>
+        <p>Rosset Têxtil, Döhler, Pró-Linhas, Esmaltec, Vicunha e Coopershoes tiveram os maiores CTRs individuais — candidatas naturais a uma abordagem dedicada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="../../../assets/logo-o2.png" alt="Agência O2" />
+    <div class="tag">Relatório confidencial · Agência O2 · Julho 2026</div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lightboxClose" aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+  // ---------- Dados ----------
+  const dailyLabels = ['07/07','08/07','09/07','10/07','11/07','12/07','13/07','14/07','15/07','16/07','17/07','18/07','19/07','20/07','21/07'];
+  const dailyInvest = [84.67,82.74,81.94,78.85,58.87,53.08,77.75,83.92,127.36,86.36,78.49,60.45,53.64,81.15,70.06];
+  const dailyCTR    = [0.44,0.54,0.32,0.37,0.45,0.49,0.58,0.39,0.97,1.34,1.60,1.14,1.05,1.21,1.28];
+  const marcoIndex  = 8; // 15/07
+
+  const setores = [
+    {n:'Fabricação de produtos têxteis', p:60.80, hi:true},
+    {n:'Confecção de artigos do vestuário', p:15.66, hi:true},
+    {n:'Consultoria em gestão empresarial', p:13.19},
+    {n:'Tecnologia, Informação e Internet', p:9.68},
+    {n:'Comércio varejista de vestuário e acessórios', p:6.79},
+    {n:'Comércio por atacado', p:6.31},
+    {n:'Atividades de contabilidade', p:5.80},
+    {n:'Comércio varejista', p:5.74},
+    {n:'Fabricação de máquinas e equipamentos', p:5.67},
+    {n:'Transporte, armazenagem e correio', p:5.60},
+  ];
+
+  const porte = [
+    {n:'501+ funcionários', v:56.36, c:'#E89A82'},
+    {n:'51–500 funcionários', v:15.02, c:'#00C2FF'},
+    {n:'Até 50 funcionários', v:9.82, c:'#8B7BB8'},
+    {n:'Outros / não identificado', v:18.80, c:'#3A3450'},
+  ];
+
+  const empresas = [
+    {n:'Vicunha Têxtil', p:'2,58%', c:'0,90%', hi:true},
+    {n:'Guararapes Confecções S/A', p:'2,38%', c:'0,41%', hi:true},
+    {n:'Coopershoes Brasil', p:'2,21%', c:'0,88%', hi:true},
+    {n:'Lupo S.A.', p:'1,04%', c:'0,56%', hi:true},
+    {n:'Cursos SESI SENAI/SC', p:'0,70%', c:'1,11%'},
+    {n:'Rafitec', p:'0,60%', c:'—'},
+    {n:'Castanhal', p:'0,57%', c:'—'},
+    {n:'Altenburg', p:'0,54%', c:'—', hi:true},
+    {n:'CATA', p:'0,53%', c:'—'},
+    {n:'Esmaltec Eletrodomésticos', p:'0,50%', c:'1,93%'},
+    {n:'Costa Rica Malhas', p:'0,50%', c:'—'},
+    {n:'Calçados Beira Rio S/A', p:'0,49%', c:'—'},
+    {n:'Pró-Linhas Nordeste LTDA', p:'0,45%', c:'2,16%'},
+    {n:'Cedro Textil', p:'0,45%', c:'—', hi:true},
+    {n:'Panitts', p:'0,45%', c:'—'},
+    {n:'AUNDE Brasil S.A.', p:'0,44%', c:'—'},
+    {n:'Grupo Santana Textiles', p:'0,44%', c:'—'},
+    {n:'Santista', p:'0,43%', c:'—', hi:true},
+    {n:'Rosset Têxtil', p:'0,42%', c:'3,27%', hi:true},
+    {n:'Delfa Ind. e Com. de Acessórios do Vestuário', p:'0,40%', c:'1,47%'},
+    {n:'Grupo Kyly', p:'0,39%', c:'—', hi:true},
+    {n:'BYD Auto Brasil', p:'0,39%', c:'—'},
+    {n:'Döhler SA', p:'0,39%', c:'2,51%', hi:true},
+    {n:'Alsco Uniformes Brasil', p:'0,39%', c:'—'},
+    {n:'Calçados Aniger', p:'0,38%', c:'—'},
+  ];
+
+  // ---------- Setor bars ----------
+  const setorHtml = setores.map(s => `
+    <div class="bar-row">
+      <div class="lbl"><span class="name${s.hi ? ' hi' : ''}">${s.n}</span><span class="pct">${s.p.toFixed(2).replace('.',',')}%</span></div>
+      <div class="bar-track"><div class="bar-fill${s.hi ? ' hi' : ''}" style="width:${(s.p/60.8*100).toFixed(1)}%"></div></div>
+    </div>
+  `).join('');
+  document.getElementById('setorBars').innerHTML = setorHtml;
+
+  // ---------- Empresas chips ----------
+  const chipsHtml = empresas.map(e => `
+    <div class="chip${e.hi ? ' hi' : ''}">
+      <div class="name">${e.n}</div>
+      <div class="stats">${e.p} impr · CTR ${e.c}</div>
+    </div>
+  `).join('');
+  document.getElementById('companiesGrid').innerHTML = chipsHtml;
+
+  // ---------- Porte donut ----------
+  const porteLegendHtml = porte.map(p => `
+    <div class="item">
+      <span class="sw" style="background:${p.c}"></span>
+      <span class="lbl">${p.n}</span>
+      <span class="val">${p.v.toFixed(2).replace('.',',')}%</span>
+    </div>
+  `).join('');
+  document.getElementById('porteLegend').innerHTML = porteLegendHtml;
+
+  new Chart(document.getElementById('porteDonut'), {
+    type: 'doughnut',
+    data: {
+      labels: porte.map(p => p.n),
+      datasets: [{ data: porte.map(p => p.v), backgroundColor: porte.map(p => p.c), borderWidth: 0 }]
+    },
+    options: {
+      cutout: '68%',
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      animation: { duration: 600 }
+    }
+  });
+
+  // ---------- Evolution chart ----------
+  new Chart(document.getElementById('evoChart'), {
+    data: {
+      labels: dailyLabels,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Investimento (R$)',
+          data: dailyInvest,
+          backgroundColor: dailyLabels.map((_, i) => i >= marcoIndex ? 'rgba(0,194,255,0.28)' : 'rgba(255,255,255,0.14)'),
+          borderRadius: 4,
+          yAxisID: 'y',
+          order: 2,
+        },
+        {
+          type: 'line',
+          label: 'CTR (%)',
+          data: dailyCTR,
+          borderColor: '#E89A82',
+          backgroundColor: '#E89A82',
+          pointBackgroundColor: '#E89A82',
+          pointBorderColor: '#191526',
+          pointBorderWidth: 2,
+          pointRadius: 4,
+          tension: 0.35,
+          yAxisID: 'y1',
+          order: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#221D33',
+          borderColor: 'rgba(255,255,255,0.12)',
+          borderWidth: 1,
+          padding: 12,
+          titleColor: '#F4F2F8',
+          bodyColor: '#C9C3DB',
+          callbacks: {
+            label: (ctx) => ctx.dataset.yAxisID === 'y1'
+              ? `CTR: ${ctx.parsed.y.toFixed(2).replace('.', ',')}%`
+              : `Investimento: R$ ${ctx.parsed.y.toFixed(2).replace('.', ',')}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { color: '#8A839E', font: { size: 11 } },
+        },
+        y: {
+          position: 'left',
+          grid: { color: 'rgba(255,255,255,0.06)' },
+          ticks: { color: '#8A839E', font: { size: 11 }, callback: (v) => 'R$' + v },
+          title: { display: false },
+        },
+        y1: {
+          position: 'right',
+          grid: { display: false },
+          ticks: { color: '#E89A82', font: { size: 11 }, callback: (v) => v.toFixed(1) + '%' },
+        },
+      },
+    },
+  });
+
+  // ---------- Lightbox ----------
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  function openLightbox(card) {
+    lightboxImg.src = card.dataset.full;
+    lightboxImg.alt = card.dataset.name;
+    lightbox.classList.add('open');
+  }
+  document.querySelectorAll('.creative-card').forEach(card => {
+    card.addEventListener('click', () => openLightbox(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(card);
+      }
+    });
+  });
+  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
