@@ -295,6 +295,24 @@ tr.partial { opacity: .64; }
   grid-template-columns: minmax(0, 760px) auto;
   justify-content: space-between;
 }
+.section-heading p.evolution-cadence {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 17px;
+  color: var(--ink-mute);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.evolution-cadence::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.evolution-cadence strong { color: var(--ink-soft); font-weight: 650; }
 .evolution-view-switch {
   display: inline-flex;
   align-items: center;

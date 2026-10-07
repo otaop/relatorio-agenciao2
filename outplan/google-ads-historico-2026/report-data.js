@@ -3,7 +3,7 @@ window.OUTPLAN_REPORT = {
     "title": "Outplan · Google Ads · Histórico 2026",
     "accountId": "1826573172",
     "sourceGeneratedAt": "2026-10-07T03:11:17.581Z",
-    "reportGeneratedAt": "2026-10-07T18:32:18.844Z",
+    "reportGeneratedAt": "2026-10-07T18:59:19.071Z",
     "startDate": "2026-02-18",
     "endDate": "2026-10-06",
     "requestedEndDate": "2026-10-06",
@@ -255,7 +255,8 @@ window.OUTPLAN_REPORT = {
         "Construção do funil de marketing e configuração das automações",
         "Integração com o CRM Pipedrive e organização do fluxo dos leads",
         "Implementação do rastreamento avançado server-side",
-        "Início dos testes de campanha e das landing pages A e B"
+        "Início dos testes de campanha e das landing pages A e B",
+        "Otimização inicial de campanhas e anúncios com base nos primeiros dados de entrega"
       ],
       "spend": 2693.92,
       "leads": 7,
@@ -278,7 +279,8 @@ window.OUTPLAN_REPORT = {
         "Refinamento da segmentação a partir do perfil dos leads recebidos",
         "Inclusão de critérios voltados a operações de maior porte",
         "Novas headlines e argumentos voltados a Procurement",
-        "Testes com as versões C e D da landing page"
+        "Testes com as versões C e D da landing page",
+        "Otimização de campanhas e anúncios para elevar a aderência dos novos leads"
       ],
       "spend": 9116.86,
       "leads": 26,
@@ -298,7 +300,8 @@ window.OUTPLAN_REPORT = {
       ],
       "actions": [
         "Refinamento de público e termos para reduzir contatos fora do perfil",
-        "Versão E com foco em porte, governança e alto volume de compras"
+        "Versão E com foco em porte, governança e alto volume de compras",
+        "Otimização de campanhas e anúncios para concentrar verba no perfil de grande porte"
       ],
       "spend": 6029.34,
       "leads": 5,
@@ -318,7 +321,8 @@ window.OUTPLAN_REPORT = {
       ],
       "actions": [
         "Nova narrativa de Procurement e SRM integrada ao ERP",
-        "Teste conjunto do formulário do site e do formulário hospedado pelo Google"
+        "Teste conjunto do formulário do site e do formulário hospedado pelo Google",
+        "Otimização de anúncios e mensagens com base no desempenho da landing page G"
       ],
       "spend": 2736.02,
       "leads": 5,
@@ -340,7 +344,8 @@ window.OUTPLAN_REPORT = {
         "Ampliação do alcance para empresas com diferentes faixas de spend anual",
         "Manutenção dos filtros de intenção e aderência ao perfil de compra B2B",
         "Grupos reorganizados por intenção de busca",
-        "Revisão das correspondências e do acompanhamento de conversões"
+        "Revisão das correspondências e do acompanhamento de conversões",
+        "Otimização contínua de campanhas e anúncios após a abertura controlada do público"
       ],
       "spend": 565.71,
       "leads": 0,
