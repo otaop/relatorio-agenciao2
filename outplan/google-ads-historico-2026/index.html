@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outplan · Histórico Google Ads 2026</title>
+  <meta name="description" content="Histórico de desempenho das campanhas Google Ads do OutBuyCenter, de fevereiro a outubro de 2026." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#191526" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23191526%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2225%22 font-weight=%22700%22 fill=%22%23e89a82%22>O2</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script defer src="report-data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o relatório</a>
+
+  <header class="topbar">
+    <a class="brand" href="#visao-geral" aria-label="Voltar ao início do relatório">
+      <span class="brand-mark" aria-hidden="true">O2</span>
+      <span>Outplan <i>×</i> Google Ads</span>
+    </a>
+    <nav aria-label="Seções do relatório">
+      <a href="#mes-a-mes">Mês a mês</a>
+      <a href="#evolucao">Evolução</a>
+      <a href="#buscas">Palavras-chave</a>
+      <a href="#landing-pages">Landing pages</a>
+    </nav>
+    <button class="print-button" type="button" data-print>Salvar em PDF</button>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="visao-geral">
+      <div class="hero-heading">
+        <div>
+          <h1>Histórico Google Ads<br /><span>OutBuyCenter · 2026</span></h1>
+          <p>A leitura começa no primeiro dia com atividade e usa apenas envios de formulário como lead. Outubro aparece como período parcial.</p>
+        </div>
+        <div class="period-stamp">
+          <span>Período observado</span>
+          <strong data-period>18 fev — 6 out 2026</strong>
+          <small>Conta 182-657-3172 · dados até 06/10</small>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="chart-stage" aria-labelledby="chart-title">
+          <div class="chart-header">
+            <div>
+              <h2 id="chart-title">Leads e custo por lead</h2>
+              <p id="chart-description">As barras mostram quantos leads chegaram. A linha mostra quanto custou, em média, cada lead.</p>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="monthlyChart" aria-label="Gráfico mensal de desempenho" role="img"></canvas>
+          </div>
+          <div class="chart-foot">
+            <span><i class="swatch coral"></i><b id="bar-legend">Leads</b></span>
+            <span><i class="swatch cyan line"></i><b id="line-legend">Custo por lead</b></span>
+            <span class="partial-key"><i></i>Outubro: 6 dias</span>
+          </div>
+        </div>
+
+        <aside class="evidence-rail" aria-label="Resumo executivo">
+          <div class="metric primary">
+            <span>Leads registrados</span>
+            <strong data-total-leads>43</strong>
+            <small><b data-website-leads>40</b> site · <b data-hosted-leads>3</b> formulário Google</small>
+          </div>
+          <div class="metric">
+            <span>Investimento total</span>
+            <strong data-total-spend>R$ 21,1 mil</strong>
+            <small>Desde a primeira atividade paga</small>
+          </div>
+          <div class="metric">
+            <span>Custo médio por lead</span>
+            <strong data-total-cpl>R$ 491,67</strong>
+            <small>Investimento dividido pelos leads</small>
+          </div>
+        </aside>
+      </div>
+
+      <div class="performance-stats" aria-label="Indicadores complementares">
+        <article class="performance-stat featured">
+          <span>Cliques no anúncio</span>
+          <strong data-total-clicks>1.999</strong>
+          <p>Total de acessos gerados pelos anúncios.</p>
+        </article>
+        <article class="performance-stat featured">
+          <span>Taxa de conversão</span>
+          <strong data-total-lead-rate>2,15%</strong>
+          <p>Percentual dos cliques que se transformaram em lead.</p>
+        </article>
+        <article class="performance-stat">
+          <span>CTR — taxa de cliques</span>
+          <strong data-total-ctr>6,02%</strong>
+          <p>Percentual das exibições que geraram um clique.</p>
+        </article>
+        <article class="performance-stat">
+          <span>CPM — custo por mil exibições</span>
+          <strong data-total-cpm>R$ 637,17</strong>
+          <p>Quanto foi investido para cada mil exibições.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="mes-a-mes">
+      <div class="section-heading">
+        <div>
+          <h2>Desempenho mês a mês</h2>
+          <p>Veja quanto foi investido, quantos leads chegaram e quanto custou cada oportunidade em cada mês.</p>
+        </div>
+        <div class="section-stat">
+          <span>Melhor mês</span>
+          <strong>Abril</strong>
+          <small>11 leads · R$ 280,19 por lead</small>
+        </div>
+      </div>
+
+      <div class="table-shell monthly-table">
+        <table aria-label="Desempenho mensal das campanhas">
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th>Investimento</th>
+              <th>Cliques no anúncio</th>
+              <th>Leads</th>
+              <th>Conversão em lead</th>
+              <th>Custo por lead</th>
+              <th>Evolução dos leads</th>
+            </tr>
+          </thead>
+          <tbody data-monthly-table></tbody>
+        </table>
+      </div>
+      <p class="table-note">* Outubro considera somente os dias 1 a 6. Em setembro, 3 dos 5 leads vieram do formulário hospedado pelo Google.</p>
+    </section>
+
+    <section class="section" id="evolucao">
+      <div class="section-heading compact evolution-heading">
+        <div>
+          <h2>Evolução das campanhas</h2>
+          <p>Um resumo do trabalho realizado em cada etapa: ajustes de público e palavras-chave, testes de mensagem, novas versões de landing page e os resultados registrados.</p>
+        </div>
+        <div class="evolution-view-switch" role="group" aria-label="Forma de visualizar a evolução das campanhas">
+          <button type="button" data-evolution-view="journey" aria-pressed="false">Linha do tempo</button>
+          <button type="button" data-evolution-view="list" aria-pressed="true">Lista detalhada</button>
+        </div>
+      </div>
+      <div data-evolution-panel="journey" hidden>
+        <div class="campaign-journey">
+          <div class="journey-navigation">
+            <button class="journey-arrow" type="button" data-journey-previous aria-label="Mostrar etapa anterior">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            </button>
+            <div class="journey-track" data-journey-track role="tablist" aria-label="Períodos da evolução das campanhas"></div>
+            <button class="journey-arrow" type="button" data-journey-next aria-label="Mostrar próxima etapa">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+            </button>
+          </div>
+          <article class="journey-detail" data-journey-detail role="tabpanel" tabindex="0"></article>
+        </div>
+      </div>
+      <div data-evolution-panel="list">
+        <ol class="phase-line" data-phases></ol>
+      </div>
+    </section>
+
+    <section class="section search-section" id="buscas">
+      <div class="section-heading">
+        <div>
+          <h2>Palavras-chave que trouxeram resultados</h2>
+          <p>Estas são as palavras que mais contribuíram para gerar leads. O Google disponibiliza termos equivalentes a <b data-search-spend-coverage>58%</b> do investimento e <b data-search-lead-coverage>63%</b> dos leads.</p>
+        </div>
+        <div class="section-stat">
+          <span>Maior volume de leads</span>
+          <strong>OutBuyCenter</strong>
+          <small>10 leads atribuídos</small>
+        </div>
+      </div>
+
+      <div class="keyword-tabs">
+        <div class="keyword-tab-list" role="tablist" aria-label="Visões das palavras-chave">
+          <button id="keyword-tab-converters" type="button" role="tab" aria-selected="true" aria-controls="keyword-panel-converters" data-keyword-tab="converters">
+            <span>Mais conversões</span>
+            <small data-keyword-tab-count="converters">—</small>
+          </button>
+          <button id="keyword-tab-bottom" type="button" role="tab" aria-selected="false" aria-controls="keyword-panel-bottom" tabindex="-1" data-keyword-tab="bottomFunnel">
+            <span>Fundo de funil</span>
+            <small data-keyword-tab-count="bottomFunnel">—</small>
+          </button>
+          <button id="keyword-tab-competitors" type="button" role="tab" aria-selected="false" aria-controls="keyword-panel-competitors" tabindex="-1" data-keyword-tab="competitors">
+            <span>Concorrentes</span>
+            <small data-keyword-tab-count="competitors">—</small>
+          </button>
+        </div>
+
+        <section id="keyword-panel-converters" class="keyword-panel active" role="tabpanel" aria-labelledby="keyword-tab-converters" data-keyword-panel="converters">
+          <div class="keyword-panel-heading">
+            <p>Palavras que registraram pelo menos um lead no período.</p>
+            <strong data-keyword-summary="converters"></strong>
+          </div>
+          <div class="table-shell keyword-table">
+            <table aria-label="Palavras-chave com mais conversões">
+              <thead><tr><th>Palavra-chave</th><th>Cliques</th><th>Investimento</th><th>Leads</th><th>Custo por lead</th></tr></thead>
+              <tbody data-keyword-group="converters"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="keyword-panel-bottom" class="keyword-panel" role="tabpanel" aria-labelledby="keyword-tab-bottom" hidden data-keyword-panel="bottomFunnel">
+          <div class="keyword-panel-heading">
+            <p>Termos técnicos usados por quem procura uma solução de e-procurement, SRM ou gestão de fornecedores.</p>
+            <strong data-keyword-summary="bottomFunnel"></strong>
+          </div>
+          <div class="table-shell keyword-table">
+            <table aria-label="Palavras-chave de fundo de funil">
+              <thead><tr><th>Palavra-chave</th><th>Cliques</th><th>Investimento</th><th>Leads</th><th>Custo por lead</th></tr></thead>
+              <tbody data-keyword-group="bottomFunnel"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="keyword-panel-competitors" class="keyword-panel" role="tabpanel" aria-labelledby="keyword-tab-competitors" hidden data-keyword-panel="competitors">
+          <div class="keyword-panel-heading">
+            <p>Palavras ligadas a concorrentes, como Nimbi, Paradigma WBC e Proxpect.</p>
+            <strong data-keyword-summary="competitors"></strong>
+          </div>
+          <div class="table-shell keyword-table">
+            <table aria-label="Palavras-chave de concorrentes">
+              <thead><tr><th>Palavra-chave</th><th>Cliques</th><th>Investimento</th><th>Leads</th><th>Custo por lead</th></tr></thead>
+              <tbody data-keyword-group="competitors"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section landing-section" id="landing-pages">
+      <div class="section-heading">
+        <div>
+          <h2>Evolução das landing pages</h2>
+          <p>As versões preservadas mostram como a mensagem saiu da eficiência operacional, passou a filtrar empresas por porte e chegou à proposta atual de Procurement e SRM.</p>
+        </div>
+        <div class="section-stat">
+          <span>Acervo visual</span>
+          <strong>6 versões</strong>
+          <small>A, B, C, D, E e G</small>
+        </div>
+      </div>
+
+      <div class="landing-gallery">
+        <article class="landing-version">
+          <a class="landing-shot" href="assets/landing-pages/full/landing-a-full.png" target="_blank" rel="noopener" aria-label="Abrir captura completa da versão A">
+            <img src="assets/landing-pages/previews/landing-a.png" alt="Hero da versão A da landing page do OutBuyCenter" width="1440" height="1400" loading="eager" />
+            <span>Abrir captura completa</span>
+          </a>
+          <div class="landing-caption">
+            <strong class="landing-version-code" aria-label="Versão A">A</strong>
+            <div>
+              <p class="landing-date">Arquivo de 3 mar 2026</p>
+              <h3>Eficiência operacional como primeira promessa</h3>
+              <p class="landing-headline">“Reduza 90% do trabalho operacional do seu setor de compras.”</p>
+              <p class="landing-change">Abordagem ampla, centrada em automação e ganho de tempo para a equipe de compras.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="landing-version">
+          <a class="landing-shot" href="assets/landing-pages/full/landing-b-full.png" target="_blank" rel="noopener" aria-label="Abrir captura completa da versão B">
+            <img src="assets/landing-pages/previews/landing-b.png" alt="Hero e formulário da versão B da landing page do OutBuyCenter" width="1440" height="1400" loading="eager" />
+            <span>Abrir captura completa</span>
+          </a>
+          <div class="landing-caption">
+            <strong class="landing-version-code" aria-label="Versão B">B</strong>
+            <div>
+              <p class="landing-date">Arquivo de 17 mar 2026</p>
+              <h3>Formulário incorporado ao primeiro impacto</h3>
+              <p class="landing-headline">“Reduza 90% do trabalho operacional do seu setor de compras.”</p>
+              <p class="landing-change">Mantém a promessa inicial e coloca o formulário de demonstração ao lado da mensagem.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="landing-version">
+          <a class="landing-shot" href="assets/landing-pages/full/landing-c-full.png" target="_blank" rel="noopener" aria-label="Abrir captura completa da versão C">
+            <img src="assets/landing-pages/previews/landing-c.png" alt="Hero da versão C da landing page do OutBuyCenter" width="1440" height="1400" loading="eager" />
+            <span>Abrir captura completa</span>
+          </a>
+          <div class="landing-caption">
+            <strong class="landing-version-code" aria-label="Versão C">C</strong>
+            <div>
+              <p class="landing-date">Arquivo de 13 abr — 14 mai 2026</p>
+              <h3>A linguagem migra para Procurement</h3>
+              <p class="landing-headline">“Reduza 90% do operacional do seu Procurement.”</p>
+              <p class="landing-change">A proposta fica mais técnica e conversa diretamente com o vocabulário do público comprador.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="landing-version">
+          <a class="landing-shot" href="assets/landing-pages/full/landing-d-full.png" target="_blank" rel="noopener" aria-label="Abrir captura completa da versão D">
+            <img src="assets/landing-pages/previews/landing-d.png" alt="Hero da versão D da landing page do OutBuyCenter" width="1440" height="1400" loading="eager" />
+            <span>Abrir captura completa</span>
+          </a>
+          <div class="landing-caption">
+            <strong class="landing-version-code" aria-label="Versão D">D</strong>
+            <div>
+              <p class="landing-date">Arquivo de 14 — 15 mai 2026</p>
+              <h3>Qualificação por volume de compras</h3>
+              <p class="landing-headline">“Reduza em até 90% o operacional do Procurement em operações de alto volume.”</p>
+              <p class="landing-change">A mensagem passa a filtrar operações complexas e empresas com mais de R$ 10 milhões anuais em compras.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="landing-version">
+          <a class="landing-shot" href="assets/landing-pages/full/landing-e-full.png" target="_blank" rel="noopener" aria-label="Abrir captura completa da versão E">
+            <img src="assets/landing-pages/previews/landing-e.png" alt="Hero da versão E da landing page do OutBuyCenter" width="1440" height="1400" loading="eager" />
+            <span>Abrir captura completa</span>
+          </a>
+          <div class="landing-caption">
+            <strong class="landing-version-code" aria-label="Versão E">E</strong>
+            <div>
+              <p class="landing-date">Commits de jul — set 2026</p>
+              <h3>Mais leveza visual e benefícios tangíveis</h3>
+              <p class="landing-headline">“Com o OutBuyCenter seu Procurement reduz 90% do operacional.”</p>
+              <p class="landing-change">O hero claro adiciona benefícios visuais, mantém o filtro de porte e simplifica o caminho até o especialista.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="landing-version">
+          <a class="landing-shot" href="assets/landing-pages/full/landing-g-full.png" target="_blank" rel="noopener" aria-label="Abrir captura completa da versão G">
+            <img src="assets/landing-pages/previews/landing-g.png" alt="Hero humanizado da versão G da landing page do OutBuyCenter" width="1440" height="1400" loading="eager" />
+            <span>Abrir captura completa</span>
+          </a>
+          <div class="landing-caption">
+            <strong class="landing-version-code" aria-label="Versão G">G</strong>
+            <div>
+              <p class="landing-date">Commit de 14 set 2026</p>
+              <h3>Procurement e SRM em uma abordagem humana</h3>
+              <p class="landing-headline">“Menos operação manual. Mais saving com Procurement e SRM integrados.”</p>
+              <p class="landing-change">A proposta atual combina especialização, integração e resultado com um hero mais humano e memorável.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="landing-note">As datas indicam quando cada arquivo ou commit existia; elas não confirmam, sozinhas, o período exato de veiculação. Não foi localizado um arquivo identificado como versão F.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Outplan · OutBuyCenter</span>
+    <span>Fonte: Google Ads · leitura realizada em 07/10/2026</span>
+    <span>Agencia O2</span>
+  </footer>
+</body>
+</html>
