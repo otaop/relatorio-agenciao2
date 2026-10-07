@@ -3,7 +3,7 @@ window.OUTPLAN_REPORT = {
     "title": "Outplan · Google Ads · Histórico 2026",
     "accountId": "1826573172",
     "sourceGeneratedAt": "2026-10-07T03:11:17.581Z",
-    "reportGeneratedAt": "2026-10-07T18:59:19.071Z",
+    "reportGeneratedAt": "2026-10-07T19:23:08.316Z",
     "startDate": "2026-02-18",
     "endDate": "2026-10-06",
     "requestedEndDate": "2026-10-06",
@@ -15,13 +15,13 @@ window.OUTPLAN_REPORT = {
     "impressions": 33181,
     "clicks": 1999,
     "spend": 21141.85,
-    "leads": 43,
-    "websiteLeads": 40,
+    "leads": 44,
+    "websiteLeads": 41,
     "hostedLeads": 3,
     "ctr": 0.0602,
     "cpc": 10.58,
-    "leadRate": 0.0215,
-    "cpl": 491.67
+    "leadRate": 0.022,
+    "cpl": 480.5
   },
   "monthly": [
     {
@@ -34,6 +34,7 @@ window.OUTPLAN_REPORT = {
       "leads": 0,
       "websiteLeads": 0,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.198,
       "cpc": 0.21,
       "leadRate": 0,
@@ -58,6 +59,7 @@ window.OUTPLAN_REPORT = {
       "leads": 7,
       "websiteLeads": 7,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.0298,
       "cpc": 11.91,
       "leadRate": 0.0315,
@@ -82,6 +84,7 @@ window.OUTPLAN_REPORT = {
       "leads": 11,
       "websiteLeads": 11,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.0488,
       "cpc": 12.74,
       "leadRate": 0.0455,
@@ -106,6 +109,7 @@ window.OUTPLAN_REPORT = {
       "leads": 7,
       "websiteLeads": 7,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.0744,
       "cpc": 10.17,
       "leadRate": 0.0238,
@@ -130,6 +134,7 @@ window.OUTPLAN_REPORT = {
       "leads": 8,
       "websiteLeads": 8,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.0632,
       "cpc": 13.19,
       "leadRate": 0.0346,
@@ -154,6 +159,7 @@ window.OUTPLAN_REPORT = {
       "leads": 4,
       "websiteLeads": 4,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.052,
       "cpc": 12.71,
       "leadRate": 0.0166,
@@ -175,21 +181,22 @@ window.OUTPLAN_REPORT = {
       "impressions": 4590,
       "clicks": 249,
       "spend": 2967.01,
-      "leads": 1,
-      "websiteLeads": 1,
+      "leads": 2,
+      "websiteLeads": 2,
       "hostedLeads": 0,
+      "leadAdjustment": "Total de agosto confirmado manualmente em 07/10/2026.",
       "ctr": 0.0542,
       "cpc": 11.92,
-      "leadRate": 0.004,
-      "cpl": 2967.01,
+      "leadRate": 0.008,
+      "cpl": 1483.5,
       "platformConversions": 1,
       "allConversions": 83,
       "searchImpressionShare": 0.0999,
       "searchBudgetLostShare": 0.2213,
       "searchRankLostShare": 0.6961,
-      "leadsChange": -0.75,
+      "leadsChange": -0.5,
       "spendChange": -0.0311,
-      "cplChange": 2.8755,
+      "cplChange": 0.9377,
       "clicksChange": 0.0332
     },
     {
@@ -202,6 +209,7 @@ window.OUTPLAN_REPORT = {
       "leads": 5,
       "websiteLeads": 2,
       "hostedLeads": 3,
+      "leadAdjustment": null,
       "ctr": 0.103,
       "cpc": 11.45,
       "leadRate": 0.0209,
@@ -211,9 +219,9 @@ window.OUTPLAN_REPORT = {
       "searchImpressionShare": 0.1243,
       "searchBudgetLostShare": 0.3691,
       "searchRankLostShare": 0.5066,
-      "leadsChange": 4,
+      "leadsChange": 1.5,
       "spendChange": -0.0779,
-      "cplChange": -0.8156,
+      "cplChange": -0.6311,
       "clicksChange": -0.0402
     },
     {
@@ -226,6 +234,7 @@ window.OUTPLAN_REPORT = {
       "leads": 0,
       "websiteLeads": 0,
       "hostedLeads": 0,
+      "leadAdjustment": null,
       "ctr": 0.1017,
       "cpc": 13.47,
       "leadRate": 0,
@@ -304,12 +313,12 @@ window.OUTPLAN_REPORT = {
         "Otimização de campanhas e anúncios para concentrar verba no perfil de grande porte"
       ],
       "spend": 6029.34,
-      "leads": 5,
-      "websiteLeads": 5,
+      "leads": 6,
+      "websiteLeads": 6,
       "hostedLeads": 0,
       "clicks": 490,
-      "cpl": 1205.87,
-      "leadRate": 0.0102
+      "cpl": 1004.89,
+      "leadRate": 0.0122
     },
     {
       "id": "iteration",
@@ -1134,7 +1143,7 @@ window.OUTPLAN_REPORT = {
     "trackedSpend": 12270.43,
     "trackedLeads": 27,
     "spendCoverage": 0.5804,
-    "leadCoverage": 0.6279
+    "leadCoverage": 0.6136
   },
   "conversionIntegrity": {
     "definition": "Lead = ação SUBMIT_LEAD_FORM registrada pelo Google Ads.",
@@ -1145,7 +1154,7 @@ window.OUTPLAN_REPORT = {
       "included": true,
       "countingType": "MANY_PER_CLICK"
     },
-    "excludedPlatformConversions": 67,
+    "excludedPlatformConversions": 66,
     "firstLeadDate": "2026-03-18",
     "note": "PageView inflou a coluna Conversões em fevereiro e março. O dashboard recalcula leads pelas ações de envio de formulário e separa site de formulário hospedado pelo Google."
   },
@@ -1163,7 +1172,7 @@ window.OUTPLAN_REPORT = {
     {
       "tone": "negative",
       "title": "Julho–agosto: queda depois do clique",
-      "body": "Os cliques variaram 3,3% em agosto, mas os leads caíram 75%."
+      "body": "Os cliques variaram 3,3% em agosto, mas os leads caíram 50%."
     },
     {
       "tone": "caution",
